@@ -15,12 +15,12 @@
 
 ## 2. 상세설계
 ### 2.1. 시스템 구성도
- 시스템 구성도 삽입 
+ ![구상도](https://github.com/user-attachments/assets/a3a8d8bc-a723-4a6a-b1c2-db804826eab9)
+
 
 ### 2.2. 사용 기술
 > 각 스택 기술과 버전 기재
-> - React.js - React14
-> - Node.js - v20.0.2
+> - Django - v5.1
 
 ## 3. 설치 및 사용 방법
 ### 실행 준비
