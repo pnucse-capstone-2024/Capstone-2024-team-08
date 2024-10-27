@@ -28,12 +28,11 @@
 >```
 >git clone https://github.com/pnucse-capstone-2024/Capstone-2024-team-08.git
 >```
->2. 아래 링크에서 필요한 데이터 압축 파일를 다운로드\
->https://drive.google.com/file/d/1MEfd-uGASIaLedAE2Elr0u-MrPz_hIFg/view?usp=sharing
->3. 압축 파일을 {복제된 리포지토리 경로}/2M/data 에 압축 해제\
-예) {repo}/2M/data/db.sqlite3
+>2. split_data_archive 폴더의 data.zip을 풀어 나온 data 폴더를 {복제된 리포지토리 경로}/2M에 저장\
+>예) {repo}/2M/data/db.sqlite3
 
 ### 실행 방법
+>Docker Desktop 실행\
 >run.bat 실행\
 >첫 실행 시 Docker Image 빌드를 위해 대기 시간이 필요\
 >준비 완료 시 자동으로 웹페이지가 열림
