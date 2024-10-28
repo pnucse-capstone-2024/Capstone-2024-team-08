@@ -41,7 +41,7 @@
 >shutdown.bat 실행
 
 ## 4. 소개 및 시연 영상
-[![영상 이름](유튜브 영상 썸네일 URL)](유튜브 영상 URL)
+[![2024년 전기 졸업과제 08 이성최](http://img.youtube.com/vi/hB47kh7qG7U/0.jpg)](https://www.youtube.com/watch?v=hB47kh7qG7U&list=PLFUP9jG-TDp-CVdTbHvql-WoADl4gNkKj&index=8)
 <!--[![부산대학교 정보컴퓨터공학부소개](http://img.youtube.com/vi/zh_gQ_lmLqE/0.jpg)](https://www.youtube.com/watch?v=zh_gQ_lmLqE)    -->
 <!--Youtube URL: https://www.youtube.com/watch?v={동영상 ID}-->
 <!--Youtube Thumbnail URL: http://img.youtube.com/vi/{동영상 ID}/0.jpg-->
