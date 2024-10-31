@@ -28,8 +28,8 @@
 >```
 >git clone https://github.com/pnucse-capstone-2024/Capstone-2024-team-08.git
 >```
->2. split_data_archive 폴더의 data.zip을 풀어 나온 data 폴더를 {복제된 리포지토리 경로}/2M에 저장\
->예) {repo}/2M/data/db.sqlite3
+>2. split_data_archive 폴더의 data.zip을 풀어 나온 data 폴더를 {복제된 리포지토리 경로}/08/2M에 저장\
+>예) {repo}/08/2M/data/db.sqlite3
 
 ### 실행 방법
 >Docker Desktop 실행\
