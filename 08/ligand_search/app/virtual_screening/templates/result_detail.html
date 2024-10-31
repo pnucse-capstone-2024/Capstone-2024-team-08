@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <script>
+        let ligand_smile = "{{ ligand.ligand_smile }}"
+        let ligand_id = "{{ ligand.id }}"
+        let receptor_name = "{{ result.receptor_name }}"
+        let result_directory = "{{ result.result_directory }}"
+    </script>
+    {% load static %}
+    <script src="{% static 'js/result_detail.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/result_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flow.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="content half">
+        <div class="container">
+            <span class="material-symbols-outlined visual-info" id="info_icon">subtitles_off</span>
+            <div class="visual-info">Receptor<br>{{ result.receptor_name }}</div>
+            <div class="visual-info">
+                {% if ligand %}
+                    Ligand<br>{{ ligand.ligand_smile }}
+                {% endif %}
+            </div>
+            <div id="visualization"></div>
+            <div class="sk-center">
+                <div class="sk-fold">
+                    <div class="sk-fold-cube"></div>
+                    <div class="sk-fold-cube"></div>
+                    <div class="sk-fold-cube"></div>
+                    <div class="sk-fold-cube"></div>
+                </div>
+                <div>Generating a file&hellip;</div>
+            </div>
+        </div> 
+        <div class="result">
+            <div class="category">Top10 Ligands</div>
+            <ul class="result_ul">
+                {% for ligand_score in ligands_scores %}
+                    {% if ligand_score.ligand %}
+                        <li {% if ligand_score.ligand.id == ligand.id %}class="selected"{% endif %}>
+                            <div><div class="hidden-overflow_div"><span class="hidden-overflow">{{ ligand_score.ligand.ligand_smile }}</span></div></div>
+                            <div>
+                                <div>{{ ligand_score.score }}</div>
+                                <a href="?ligand={{ ligand_score.ligand.id }}"><span class="material-symbols-outlined">deployed_code</span></a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

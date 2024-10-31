@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% load static %}
+<script src="{% static 'js/manage_ligand.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<link rel="stylesheet" href="{% static 'css/manage_ligand.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="content">
+    <div class="category">
+        Add Ligand
+    </div>
+
+    <div class="add_btn_div">
+        <form action="{% url 'import-from-db' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" id="addFromDB" class="add_btn">Add Ligand From Pre-Made Database</button>
+        </form>
+        <span class="material-symbols-outlined">database</span>
+    </div>
+    
+    {% if import_from_db_error_message %}
+        <div class="error_message">{{ import_from_db_error_message }}</div>
+    {% endif %}
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <ul class="form_ul">
+            <li>
+                <label class="label">Ligand</label>
+                <input type="text" name="ligand_smile" id="id_ligand" placeholder="SMILES">
+                {% if error_message %}
+                <div class="error_message">{{ error_message }}</div>
+                {% endif %}
+            </li>
+            <li class="submit_li"><input class="submit_btn" type="submit" value="Add"></li>
+        </ul>
+    </form>
+</div>
+
+<div class="content">
+    <div class="category">
+        Make Cluster
+    </div>
+
+    <div class="add_btn_div">
+        <form action="{% url 'make-cluster' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" id="makeClusterFiles" class="add_btn">Make Cluster Files</button>
+        </form>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="category">
+        Ligand List
+    </div>
+    <ul class="ligand_ul">
+        {% for ligand in page_obj %}
+        <li class="ligand_li">
+            <div>{{ ligand.created_at|date:'Y-m-d' }}</div>
+            <div>{{ ligand.ligand_smile }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"><span
+                class="material-symbols-outlined">keyboard_arrow_left</span></a>
+        {% else %}
+        <a href="" style="visibility: hidden"><span class="material-symbols-outlined">keyboard_arrow_left</span></a>
+        {% endif %}
+        <a href="?page={{ page_obj.number }}" class="current-page">{{ page_obj.number }}</a>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"><span
+                class="material-symbols-outlined">keyboard_arrow_right</span></a>
+        {% else %}
+        <a href="" style="visibility: hidden"><span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
